@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ButtonPagination from "./ButtonPagination";
 
 export default function Header() {
     type Pagination = 'start' | '01' | '02' | '03';
+    const [hasScrolled, setHasScrolled] = useState(false);
     const [pagination, setPagination] = useState<Pagination>('start');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setHasScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const getBarPosition = () => {
         switch (pagination) {
@@ -64,7 +74,12 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className="w-full h-28 flex items-center justify-between">
+            <div
+                className="w-full h-28 flex items-center justify-between transition-colors duration-500"
+                style={{
+                    backgroundColor: hasScrolled ? '#0b1d26' : 'transparent'
+                }}
+            >
                 <div className="w-52">
                     <h1 className="text-3xl text-center">MNTN</h1>
                 </div>
