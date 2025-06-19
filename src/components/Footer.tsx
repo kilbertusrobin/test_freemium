@@ -11,17 +11,17 @@ export default function Footer() {
 
         <div className="text-white h-56">
             <p className="mb-3 text-[#FBD784] text-xl">More on The Blog</p>
-            <p className="mb-3">About MNTN</p>
-            <p className="mb-3">Contributors & Writers</p>
-            <p className="mb-3">Write For Us</p>
-            <p className="mb-3">Contact Us</p>
-            <p className="mb-3">Privacy Policy</p>
+            <p className="mb-3 cursor-pointer">About MNTN</p>
+            <p className="mb-3 cursor-pointer">Contributors & Writers</p>
+            <p className="mb-3 cursor-pointer">Write For Us</p>
+            <p className="mb-3 cursor-pointer">Contact Us</p>
+            <p className="mb-3 cursor-pointer">Privacy Policy</p>
         </div>
         <div className="text-white h-56">
             <p className="mb-3 text-[#FBD784] text-xl">More on MNTN</p>
-            <p className="mb-3">The Team</p>
-            <p className="mb-3">Jobs</p>
-            <p className="mb-3">Press</p>
+            <p className="mb-3 cursor-pointer">The Team</p>
+            <p className="mb-3 cursor-pointer">Jobs</p>
+            <p className="mb-3 cursor-pointer">Press</p>
         </div>
     </div>
   );

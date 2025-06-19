@@ -33,7 +33,6 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-
     const scrollToSection = (section: Pagination) => {
         const documentHeight = document.documentElement.scrollHeight;
         const viewportHeight = window.innerHeight;
@@ -74,8 +73,8 @@ export default function Header() {
     };
 
     return (
-        <div className="w-full h-screen z-100 fixed text-white">
-            <div className="absolute left-0 w-40 h-4/5 flex flex-col items-center justify-center gap-6">
+        <div className="w-full h-screen z-100 fixed text-white pointer-events-none">
+            <div className="absolute left-0 w-40 h-4/5 flex flex-col items-center justify-center gap-6 pointer-events-auto">
                 <p className="transform rotate-90 origin-left -translate-y-14 translate-x-9">Follow us</p>
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -89,7 +88,7 @@ export default function Header() {
                 </a>
             </div>
 
-            <div className="absolute right-0 w-40 h-4/5 flex items-center justify-center">
+            <div className="absolute right-0 w-40 h-4/5 flex items-center justify-center pointer-events-auto">
                 <div className="relative flex flex-col items-center gap-8">
                     <div className="absolute left-14 transform -translate-x-1/2 w-px h-57 bg-gray-400 opacity-30"></div>
                     
@@ -123,7 +122,7 @@ export default function Header() {
             </div>
 
             <div
-                className="w-full h-28 flex items-center justify-between transition-colors duration-500"
+                className="w-full h-28 flex items-center justify-between transition-colors duration-500 pointer-events-auto"
                 style={{
                     backgroundColor: hasScrolled ? '#0b1d26' : 'transparent'
                 }}

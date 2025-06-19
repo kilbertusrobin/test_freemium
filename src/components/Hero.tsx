@@ -4,7 +4,6 @@ export default function Hero() {
         const viewportHeight = window.innerHeight;
         const scrollableHeight = documentHeight - viewportHeight;
         
-        // Scroll vers 35% de la page (début de la section 01)
         const targetScrollY = scrollableHeight * 0.35;
         window.scrollTo({ 
             top: targetScrollY, 
@@ -21,10 +20,11 @@ export default function Hero() {
             />
 
             <div 
-                className="relative h-180 w-full text-white z-20"
+                className="relative h-180 w-full text-white z-30"
                 style={{ 
                     background: 'linear-gradient(to top, rgba(11, 29, 38, 0), rgba(11, 29, 38, 0.6))'
-                }}>
+                }}
+            >
                 <div className="absolute w-2/5 h-64 flex flex-col justify-around left-1/2 top-36 transform -translate-x-1/2">
                     <p className="text-[#FBD784] font-chronicle uppercase flex items-center">
                         <span className="inline-block w-12 mr-4 border-b border-[#FBD784] mb-1"></span>
@@ -32,11 +32,11 @@ export default function Hero() {
                     </p>
                     <h1 className="text-7xl font-chronicle">Be prepared for the Mountains and beyond!</h1>
                     <button 
-                        className="cursor-pointer hover:text-[#FBD784] transition-colors duration-300 flex items-center gap-2 bg-transparent border-none text-white text-base font-inherit p-0 outline-none relative pointer-events-auto"
+                        className="cursor-pointer hover:text-[#FBD784] transition-colors duration-300 flex items-center gap-2 bg-transparent border-none text-white text-base font-inherit p-0 outline-none relative z-40"
                         onClick={scrollToFirstSection}
                     >
                         scroll down 
-                        <span className="text-xl animate-bounce">↓</span>
+                        <span className="text-xl animate-bounce">↓</span> 
                     </button>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export default function Hero() {
             <img
                 src="/hero/hill.png"
                 alt="Collines vertes"
-                className="absolute w-full h-auto object-cover z-30"
+                className="absolute w-full h-auto object-cover z-25"
                 style={{ top: '80%' }}
             />
             <div 

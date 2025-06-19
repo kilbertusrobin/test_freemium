@@ -9,7 +9,7 @@ export default function Card({ id, tagLine, headerText, contentText, imageName, 
                     <p className="text-lg uppercase text-[#FBD784] verybold mt-2 mb-4"><span className="inline-block w-16 mr-4 border border-[#FBD784] mb-2"></span>{tagLine}</p>
                     <h1 className="text-5xl mb-4">{headerText}</h1>
                     <p className="mb-4">{contentText}</p>
-                    <p className="text-[#FBD784] flex gap-2">read more <span className="text-xl">⭢</span></p>
+                    <button className="text-[#FBD784] flex gap-2 cursor-pointer">read more <span className="text-xl">⭢</span></button>
                 </div>
             </div>
             <div className="w-1/3 h-158 overflow-hidden">
