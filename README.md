@@ -3,6 +3,7 @@
 Bonjour !
 
 Voici le test technique réalisé par **Robin KILBERTUS** lors du processus de recrutement pour **FreemiumPlay**.
+Je l'ai réalisé avec les technologies Vite, React et TailwindCSS
 
 J'ai mis des commentaires dans la plupart des fichiers afin d'expliquer ma démarche et les difficultés que j'ai pu rencontrer. Je précise également quand j'ai utilisé l'IA pour m'aider.
 
