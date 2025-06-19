@@ -8,12 +8,60 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setHasScrolled(window.scrollY > 50);
+            const scrollY = window.scrollY;
+            setHasScrolled(scrollY > 50);
+
+            const documentHeight = document.documentElement.scrollHeight;
+            const viewportHeight = window.innerHeight;
+            const scrollableHeight = documentHeight - viewportHeight;
+            const scrollPercentage = scrollY / scrollableHeight;
+            
+            if (scrollPercentage <= 0.35) {
+                setPagination('start');
+            } else if (scrollPercentage <= 0.60) {
+                setPagination('01');
+            } else if (scrollPercentage <= 0.85) {
+                setPagination('02');
+            } else {
+                setPagination('03');
+            }
         };
 
         window.addEventListener("scroll", handleScroll);
+        handleScroll();
+        
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+
+    const scrollToSection = (section: Pagination) => {
+        const documentHeight = document.documentElement.scrollHeight;
+        const viewportHeight = window.innerHeight;
+        const scrollableHeight = documentHeight - viewportHeight;
+        
+        let targetPercentage = 0;
+        
+        switch (section) {
+            case 'start':
+                targetPercentage = 0;
+                break;
+            case '01':
+                targetPercentage = 0.35;
+                break;
+            case '02':
+                targetPercentage = 0.60;
+                break;
+            case '03':
+                targetPercentage = 0.85;
+                break;
+        }
+        
+        const targetScrollY = scrollableHeight * targetPercentage;
+        window.scrollTo({ 
+            top: targetScrollY, 
+            behavior: 'smooth' 
+        });
+    };
 
     const getBarPosition = () => {
         switch (pagination) {
@@ -21,7 +69,7 @@ export default function Header() {
             case '01': return 'top-[28%]';
             case '02': return 'top-[55%]';
             case '03': return 'top-[83%]';
-            default: return 'top-[20%]';
+            default: return 'top-[00%]';
         }
     };
 
@@ -50,26 +98,26 @@ export default function Header() {
                     <ButtonPagination
                         value="Start"
                         isActive={pagination === 'start'}
-                        onClick={() => setPagination('start')}
+                        onClick={() => scrollToSection('start')}
                         className="mt-2"
                     />
                     
                     <ButtonPagination
                         value="01"
                         isActive={pagination === '01'}
-                        onClick={() => setPagination('01')}
+                        onClick={() => scrollToSection('01')}
                     />
                     
                     <ButtonPagination
                         value="02"
                         isActive={pagination === '02'}
-                        onClick={() => setPagination('02')}
+                        onClick={() => scrollToSection('02')}
                     />
-                    
+
                     <ButtonPagination
                         value="03"
                         isActive={pagination === '03'}
-                        onClick={() => setPagination('03')}
+                        onClick={() => scrollToSection('03')}
                     />
                 </div>
             </div>
@@ -81,15 +129,15 @@ export default function Header() {
                 }}
             >
                 <div className="w-52">
-                    <h1 className="text-3xl text-center">MNTN</h1>
+                    <h1 className="text-3xl text-center cursor-pointer">MNTN</h1>
                 </div>
                 <div className="w-80 flex items-center justify-around font-black">
-                    <p>Equipement</p>
-                    <p>About Us</p>
-                    <p>Blog</p>
+                    <p className="cursor-pointer">Equipement</p>
+                    <p className="cursor-pointer">About Us</p>
+                    <p className="cursor-pointer">Blog</p>
                 </div>
                 <div className="w-52">
-                    <p className="text-center flex items-center justify-center gap-2">
+                    <p className="text-center flex items-center justify-center gap-2 cursor-pointer">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />

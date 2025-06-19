@@ -6,10 +6,9 @@ export default function Body() {
   return (
     <div className="flex flex-col items-center">
       {(contents as CardProps[]).map(content => (
-        <Card
-          key={content.id}
-          {...content}
-        />
+        <div id={`card-${content.id}`} key={content.id} className="flex items-center justify-center">
+          <Card {...content} />
+        </div>
       ))}
     </div>
   );
