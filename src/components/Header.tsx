@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
 import ButtonPagination from "./ButtonPagination";
 
+/* Nous avons ici la source la plus importante des problèmes que j'ai pu rencontrer lors de mon développement.
+Le header comprends la navbar ainsi que les div sur les cotés avec les réseaux et la pagination
+Etant donné que j'ai appliqué un filtre dans mon hero banner (car c'est ce que j'ai remarqué dans le figma), j'avais forcément
+besoin que le header soit au z-index le plus important (car sinon le filtre apparaissait sur le header). Sauf que comme il y a un h-screen sur
+ce header, cela faisait que les boutons (et principalement celui scroll down dans la hero banner) n'étaient pas cliquable. J'ai donc réorganisé les
+z-index directement dans ma page Home.
+
+Je précise également que je me suis fait quelque peu aider par l'IA pour la gestion du scroll avec la pagination (surtout pour la partie 
+"détection" de la hauteur de page avec l'event listener) */
+
 export default function Header() {
     type Pagination = 'start' | '01' | '02' | '03';
     const [hasScrolled, setHasScrolled] = useState(false);

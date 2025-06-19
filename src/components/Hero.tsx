@@ -1,4 +1,6 @@
 export default function Hero() {
+/* Comme je l'ai précisé auparavant, j'ai appliqué un filtre gradient vers le bas sur le header, car c'est ce que j'ai remarqué sur
+le figma. De plus, un autre gradient est existant à la fin de la hero banner pour faire la transition avec le background du body. */
     const scrollToFirstSection = () => {
         const documentHeight = document.documentElement.scrollHeight;
         const viewportHeight = window.innerHeight;
@@ -58,13 +60,6 @@ export default function Hero() {
                 style={{ 
                     top: '150%',
                     background: 'linear-gradient(to bottom, transparent 0%, #0b1d26 80%)'
-                }}>
-            </div>
-            <div 
-                className="absolute h-[236vh] w-full z-35"
-                style={{ 
-                    top: '184%',
-                    background: ' #0b1d26'
                 }}>
             </div>
         </>

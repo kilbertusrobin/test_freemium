@@ -1,5 +1,8 @@
 import type { CardProps } from "../types/CardProps";
 
+/* Donc au final ceci peut illustrer comment je travaille lorsque je fetch des données
+d'une vrai BDD dans un composant */
+
 export default function Card({ id, tagLine, headerText, contentText, imageName, isReversed }: CardProps) {
     return (
         <div className={`flex items-center justify-center gap-30 w-2/3 h-48 mb-140 ${isReversed ? 'flex-row-reverse' : 'flex-row'}`}>

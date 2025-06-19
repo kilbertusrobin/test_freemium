@@ -1,4 +1,5 @@
 export default function Footer() {
+/* Rien de très particulier à préciser, simplement j'ai mis des cursor-pointer pour simuler des <a href> */
   return (
     <div className="w-full flex justify-around pb-16">
         <div className="w-1/3 text-white h-56 flex flex-col justify-between">
