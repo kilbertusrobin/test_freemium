@@ -1,6 +1,6 @@
 export default function Hero() {
     return (
-        <div className="w-full relative min-h-screen">
+        <>
             <img
                 src="/hero/cloud.png"
                 alt="Nuages en arrière-plan"
@@ -41,7 +41,13 @@ export default function Hero() {
                     background: 'linear-gradient(to bottom, rgba(11, 29, 38, 0) 0%, #0b1d26 80%)'
                 }}>
             </div>
-
-        </div>
+            <div 
+                className="absolute h-[236vh] w-full z-35"
+                style={{ 
+                    top: '184%',
+                    background: ' #0b1d26'
+                }}>
+            </div>
+        </>
     );
 }
